@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Visit <a href="/todos">Todo</a> View
                 </div>
             </div>
         </div>

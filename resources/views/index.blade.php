@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="container text-center my-10 mx-auto my-30 shadow-lg rounded max-w-md pb-10">
-        <div class="flex justify-center border rounded py-5">
+        <div class="flex justify-between border rounded py-5 px-10">
             <h1 class="text-4xl">All todos</h1>
             <a href="/todos/create" class=" py-3 py-3 mx-5 text-2xl">
                 <span class="fas fa-plus-circle text-blue-400"/>
