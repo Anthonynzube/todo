@@ -24,10 +24,10 @@
 
                         <div>
                             <a href="/todos/{{$todo->id}}/edit" class="cursor-pointer">
-                                <span class="fas fa-edit px-2 text-orange-400"/>
+                                <span class="fas fa-pen px-2 text-orange-400"/>
                             </a>
 
-                            <span class="fas fa-trash px-2 text-red-600 cursor-pointer"
+                            <span class="fas fa-times px-2 text-red-600 cursor-pointer"
                                         onclick="event.preventDefault();
                                             if(confirm('Are you sure?')){
                                                 document.getElementById('form-delete-{{$todo->id}}')
