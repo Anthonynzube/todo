@@ -19,7 +19,7 @@
                         @if($todo->completed)
                         <p class="line-through">{{$todo->title}}</p>
                         @else
-                        <p>{{$todo->title}}</p>
+                        <p><a href="/todos/{{$todo->id}}/show">{{$todo->title}}</a></p>
                         @endif
 
                         <div>
