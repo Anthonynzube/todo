@@ -45,17 +45,22 @@ class TodoController extends Controller
 
     public function edit(Todo $todo)
     {
-
+        // return $todo->steps;
         return view('edit', compact('todo'));
     }
 
     public function update(TodoCreateRequest $request, Todo $todo)
     {
-
+        // dd($request->step);
         $todo->update([
             'title' => $request->title,
+            'description' => $request->description,
         ]);
-
+        if ($request->step) {
+            foreach ($request->step as $step) {
+                $todo->steps()->update(['name' => $step]);
+            }
+        }
         return redirect()->route('todo.index')->with('message', 'Updated Successfully');
     }
 

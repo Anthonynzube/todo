@@ -8,15 +8,24 @@
             </a>
         </div>
         <x-alert />
-        <form action="/todos/{{$todo->id}}/edit" method="post" class="py-5">
+        <form action="/todos/{{$todo->id}}/update" method="post" class="py-5">
             @csrf
-            @method('patch')
             <div class="py-2">
+                <p class="text-xl font-normal">Title</p>
                 <input type="text" name="title" class="py-2 px-2 border" placeholder="Title" value="{{$todo->title}}"/>
             </div>
             <div class="py-2">
-                <textarea name="description" class="py-2 px-4 border"placeholder="Description" value="{{$todo->description}}" /></textarea>
+                <p class="text-xl font-normal">Description</p>
+                <textarea type="text" name="description" class="py-2 px-4 border"placeholder="Description"/>{{$todo->description}}</textarea>
             </div>
+            @if($todo->steps->count() > 0)
+                <p class="text-xl font-normal">Step(s) for this task</p>
+                @foreach($todo->steps as $step)
+                <div class="py-2">
+                    <input type="text" name="step[]" class="py-2 px-2 border" placeholder="{{'Describe Step'}}" value="{{$step->name}}"/>
+                </div>
+                @endforeach
+            @endif
             <div class="py-2">
                 <input type="submit" value="Update" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"/>
             </div>
