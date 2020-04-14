@@ -10,6 +10,7 @@
         <x-alert />
         <form action="/todos/{{$todo->id}}/update" method="post" class="py-5">
             @csrf
+            @method('patch')
             <div class="py-2">
                 <p class="text-xl font-normal">Title</p>
                 <input type="text" name="title" class="py-2 px-2 border" placeholder="Title" value="{{$todo->title}}"/>
