@@ -9,10 +9,22 @@
         </div>
 
         <div>
-            <div>
-                <p class=" py-3 mx-5 text-2xl">{{$todo->description}}</p>
+            <div class=" my-5">
+                <h3 class="text-xl my-2 font-medium">Task Description</h3>
+                <p class=" pb-5">{{$todo->description}}</p>
                 
             </div>
+
+        @if($todo->steps->count() > 0)
+                <h3 class="text-xl my-2 font-medium">Step(s) for this task</h3>
+                <div class=" pb-5">
+                    @foreach($todo->steps as $step)
+                        
+                        <p>{{$step->name}}</p>
+                        
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 

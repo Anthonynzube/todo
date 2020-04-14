@@ -34,7 +34,7 @@ class TodoController extends Controller
     {
         $todo = auth()->user()->todos()->create($request->all());
 
-        if ($request->steps) {
+        if ($request->step) {
             foreach ($request->step as $step) {
                 $todo->steps()->create(['name' => $step]);
             }
@@ -75,6 +75,7 @@ class TodoController extends Controller
 
     public function destroy(Todo $todo)
     {
+        $todo->steps->each->delete();
         $todo->delete();
 
         return redirect()->back()->with('message', 'Todo Deleted');
