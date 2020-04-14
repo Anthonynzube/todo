@@ -15,7 +15,7 @@ class TodoController extends Controller
 
     public function index()
     {
-        $todo = auth()->user()->todos->sortBy('completed');
+        $todo = auth()->user()->todos->sortByDesc('created_at')->sortBy('completed');
 
         return view('index', compact('todo'));
     }
@@ -32,9 +32,14 @@ class TodoController extends Controller
 
     public function store(TodoCreateRequest $request)
     {
-        dd($request->all());
-        auth()->user()->todos()->create($request->all());
+        $todo = auth()->user()->todos()->create($request->all());
 
+        if ($request->steps) {
+            foreach ($request->step as $step) {
+                $todo->steps()->create(['name' => $step]);
+            }
+        }
+        
         return redirect()->route('todo.index')->with('message', 'Todo created successfully!');
     }
 

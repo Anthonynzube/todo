@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Step;
 
 class Todo extends Model
 {
@@ -10,8 +11,8 @@ class Todo extends Model
         'title', 'completed', 'user_id', 'description',
     ];
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function steps()
+    {
+        return $this->hasMany(Step::class);
+    }
 }

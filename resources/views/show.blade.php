@@ -11,6 +11,7 @@
         <div>
             <div>
                 <p class=" py-3 mx-5 text-2xl">{{$todo->description}}</p>
+                
             </div>
         </div>
     </div>
