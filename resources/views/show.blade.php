@@ -16,15 +16,15 @@
             </div>
 
         @if($todo->steps->count() > 0)
-                <h3 class="text-xl my-2 font-medium">Step(s) for this task</h3>
-                <div class=" pb-5">
-                    @foreach($todo->steps as $step)
-                        
-                        <p>{{$step->name}}</p>
-                        
-                    @endforeach
-                </div>
-            @endif
+            <h3 class="text-xl my-2 font-medium">Step(s) for this task</h3>
+            <div class=" pb-5">
+                @foreach($todo->steps as $step)
+                    
+                    <p>{{$step->name}}</p>
+                    
+                @endforeach
+            </div>
+        @endif
         </div>
     </div>
 

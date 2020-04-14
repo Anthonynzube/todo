@@ -6,7 +6,7 @@
 
     @foreach($steps as $step)
         <div class="py-2">
-            <input type="text" name="step[]" class="py-2 px-2 border" placeholder="{{'Describe Step '.$step}}"/>
+            <input type="text" name="step[]" class="py-2 px-2 border" wire:key="{{$step}}" placeholder="{{'Describe Step '.($step+1)}}"/>
             <span class="fas fa-times text-red-600 px-2 cursor-pointer" wire:click="remove({{$loop->index}})"/>
         </div>
     @endforeach
